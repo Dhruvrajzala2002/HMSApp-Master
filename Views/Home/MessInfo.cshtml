@@ -1,0 +1,43 @@
+@model HMSApp.Models.MessAttendenceModel;
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@using (Html.BeginForm("MessInfo", "Home", FormMethod.Post))
+   {
+          
+
+         <div class="form-group col-md-2">
+         Current Date :      
+         @Html.TextBoxFor(m => m.CurrentDate, new { @class = "form-control" ,  @type = "date"} )
+         @Html.ValidationMessage("Date")
+         </div><br>
+
+
+         <div class="form-group col-md-2">
+            Breakfast :
+         @Html.CheckBoxFor(m => m.Breakfast, new { @class = "form-check-input" })
+         @Html.ValidationMessage("Breakfast")
+         </div><br>
+
+         <div class="form-group col-md-2">
+            Dinner :
+         @Html.CheckBoxFor(m => m.Dinner, new { @class = "form-check-input" })
+         @Html.ValidationMessage("Dinner`")
+         </div><br>
+
+         <div class="form-group col-md-2">
+            Lunch :
+         @Html.CheckBoxFor(m => m.Lunch, new { @class = "form-check-input" })
+         @Html.ValidationMessage("Lunch")
+         </div><br>
+  
+
+
+ <div class="row">
+       <input type="submit" asp-action="AddNewStudent" class="btn btn-primary col-md-1" value="Add" /> &nbsp; &nbsp; &nbsp;
+       <input type="submit" asp-action="UpdateStudent" class="btn btn-primary col-md-1" value="Update" />&nbsp; &nbsp; &nbsp;  
+       <input type="submit" asp-action="DeleteStudent" class="btn btn-primary col-md-1" value="Delete" />&nbsp; &nbsp; &nbsp; 
+    </div>
+   }

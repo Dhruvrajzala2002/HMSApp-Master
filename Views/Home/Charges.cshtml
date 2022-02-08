@@ -1,0 +1,69 @@
+@model HMSApp.Models.ChargesModel;
+
+@{
+    ViewData["Title"] = "Visitor Page";
+}
+
+@using (Html.BeginForm("Charges", "Home", FormMethod.Post))
+{
+
+         <div class="form-group col-md-2">
+       Student Id :
+         @Html.TextBoxFor(m => m.StudentId, new { @class = "form-control" })
+         @Html.ValidationMessage("StudentId")
+         </div><br>
+
+
+
+    
+       <div class="form-group col-md-2">
+         Charge Name :
+         @Html.TextBoxFor(m => m.ChargeName, new { @class = "form-control" ,  @type = "date" })
+         @Html.ValidationMessage("Chargename")
+       </div><br>
+
+  
+     <div class="form-group col-md-2">
+    ChargeDetail :
+         @Html.TextBoxFor(m => m.ChargeDetail, new { @class = "form-control" })
+         @Html.ValidationMessage("ChargeDetail")
+     </div><br>
+  
+
+
+  
+      <div class="form-group col-md-2">
+       Amountpaid  :
+         @Html.TextBoxFor(m => m. Amountpaid , new { @class = "form-control" })
+         @Html.ValidationMessage(" Amountpaid ")
+     </div><br>
+  
+
+  
+    <div class="form-group col-md-2">
+    Chargespaid :
+         @Html.TextBoxFor(m => m.Chargespaid, new { @class = "form-control" })
+       @Html.ValidationMessage("Chargespaid")
+     </div><br>
+  
+
+
+    <div class="form-group col-md-2">
+      ChargeDueDate :
+      @Html.TextBoxFor(m => m.ChargeDueDate, new { @class = "form-control" ,@type = "date" })
+      @Html.ValidationMessage("ChargeDueDate")
+     </div><br>
+  <br>
+
+   
+         <div class="row">
+       <input type="submit" asp-action="AddNewStudent" class="btn btn-primary col-md-1" value="Add" /> &nbsp; &nbsp; &nbsp;
+       <input type="submit" asp-action="UpdateStudent" class="btn btn-primary col-md-1" value="Update" />&nbsp; &nbsp; &nbsp;
+       <input type="submit" asp-action="DeleteStudent" class="btn btn-primary col-md-1" value="Delete" />&nbsp; &nbsp; &nbsp;
+      </div>
+
+}
+
+
+
+    

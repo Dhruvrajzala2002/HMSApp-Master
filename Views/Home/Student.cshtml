@@ -1,0 +1,141 @@
+﻿@model HMSApp.Models.StudentModel;
+
+@{
+    ViewData["Title"] = "Student";
+}
+
+@using (Html.BeginForm("Student", "Home", FormMethod.Post))
+{
+    <div class="card">
+        <div class="card-header">
+            Student Information
+        </div>
+        <div class="card-body">
+            <div class="form-group col-md-2">
+                Student ID : @Html.TextBoxFor(m => m.StudentId, new { @Value = "Enter Name", @class = "form-control" })
+                @Html.ValidationMessage("StudentId")
+            </div>
+            <div class="form-group">
+            <div class="col-md-2">
+                First Name :
+                @Html.TextBoxFor(m => m.FirstName, new { @Value = "Enter First Name", @class = "form-control" })
+                @Html.ValidationMessage("FirstName")
+            </div>
+            <div class="col-md-2">
+                Last Name :
+                @Html.TextBoxFor(m => m.LastName, new { @Value = "Enter Last Name", @class = "form-control" })
+                @Html.ValidationMessage("LastName")
+            </div>
+            </div>
+            <div class="form-group col-md-2">
+                Date of Birth :
+                @Html.TextBoxFor(m => m.BirthDate, new { @class = "form-control"   , @type = "date"})
+                @Html.ValidationMessage("BirthDate")
+            </div>
+
+            <div class="form-group col-md-2">
+                BloodGroup :
+                @Html.TextBoxFor(m => m.BloodGroup, new { @class = "form-control" })
+                @Html.ValidationMessage("BloodGroup")
+            </div>
+
+             <div class="form-group col-md-2">
+                BloodGroup :
+                @Html.DropDownListFor(m => m.Gender,new List<SelectListItem>{
+                    new SelectListItem{ Text="Male", Value="Male"},
+                   new SelectListItem{ Text="Female", Value="Female"}
+                }, new { @class = "form-control" })
+                @Html.ValidationMessage("Gender")
+            </div>
+
+            <div class="form-group col-md-2">
+                Join Date :
+                @Html.TextBoxFor(m => m.JoinDate, new { @class = "form-control" ,  @type = "date"})
+                @Html.ValidationMessage("JoinDate")
+            </div>
+
+            <div class="form-group col-md-2">
+                Leave Date :
+                @Html.TextBoxFor(m => m.LeaveDate, new { @class = "form-control"  , @type = "date" })
+                @Html.ValidationMessage("LeaveDate")
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            Student Address Information
+        </div>
+        <div class="card-body">
+            <div class="form-group col-md-2">
+                Address : @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+                @Html.ValidationMessage("Address")
+            </div>
+            <div class="form-group col-md-2">
+                City :  @Html.TextBoxFor(m => m.City, new { @class = "form-control" })
+                @Html.ValidationMessage("City")
+            </div>
+            <div class="form-group col-md-2">
+                State :  @Html.TextBoxFor(m => m.State, new { @class = "form-control" })
+                @Html.ValidationMessage("City")
+            </div>
+            <div class="form-group col-md-2">
+                Pincode : @Html.TextBoxFor(m => m.Pincode, new { @class = "form-control" })
+                @Html.ValidationMessage("Pincode must be numeric and 6 character")
+            </div>
+            <div class="form-group col-md-2">
+                Contact No. :
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">+91</div>
+                    </div>
+                    @Html.TextBoxFor(m => m.ContactNo, new { @class = "form-control" })
+                    @Html.ValidationMessage("Contact number must be 10 numbers only.")
+                </div>
+            </div>
+            <div class="form-group col-md-2">
+                Email ID : @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                @Html.ValidationMessage("Email")
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            Student Parents/Gurdian Information
+        </div>
+        <div class="card-body">
+            <div class="form-group col-md-2">
+                Father Name :  @Html.TextBoxFor(m => m.FatherName, new { @class = "form-control" })
+                @Html.ValidationMessage("FatherName")
+            </div>
+
+            <div class="form-group col-md-2">
+                Mother Name : @Html.TextBoxFor(m => m.MotherName, new { @class = "form-control" })
+                @Html.ValidationMessage("MotherName")
+            </div>
+
+            <div class="form-group col-md-2">
+                Contact No. :
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">+91</div>
+                    </div>
+                    @Html.TextBoxFor(m => m.ParentsContactNo, new { @class = "form-control" })
+                    @Html.ValidationMessage("Parentscontactno")
+                </div>
+            </div>
+
+            <div class="form-group col-md-2">
+                Address same as above : @Html.CheckBoxFor(m => m.ParentsAddressFlag, new { @class = "form-check-input" })
+                @Html.ValidationMessage("ParentsAddressFlag")
+            </div>
+
+        </div>
+    </div>
+    <div class="btn-toolbar" role="toolbar">
+       <input type="submit" asp-action="AddNewStudent" class="btn btn-primary" value="Add" /> &nbsp;&nbsp;
+       <input type="submit" asp-action="UpdateStudent" class="btn btn-primary" value="Update" /> &nbsp;&nbsp
+       <input type="submit" asp-action="DeleteStudent" class="btn btn-primary" value="Delete" /> &nbsp;&nbsp
+    </div>
+}

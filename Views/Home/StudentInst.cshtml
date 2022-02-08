@@ -1,0 +1,66 @@
+@model HMSApp.Models.StudInstModel;
+
+@{
+   ViewData["Title"] = "Institute Page";
+}
+
+@using (Html.BeginForm("StudentInst", "Student", FormMethod.Post))
+{
+   <div class="form-group col-md-2">
+      Student Id :
+      @Html.TextBoxFor(m => m.StudentId, new { @class = "form-control" })
+      @Html.ValidationMessage("StudentId")
+   </div>
+   <br>
+
+   <div class="form-group col-md-2">
+      Institute Name :
+      @Html.TextBoxFor(m =>m.InstituteName, new { @class = "form-control" } )
+      @Html.ValidationMessage("InstituteName")
+   </div>
+   <br>
+
+   <div class="form-group col-md-2">
+      Class :
+      @Html.TextBoxFor(m => m.Class , new { @class = "form-control" } )
+      @Html.ValidationMessage(" Class ")
+   </div>
+   <br>
+   <div class="form-group col-md-2">
+      InstituteName :
+      @Html.TextBoxFor(m => m.InstituteName, new { @class = "form-control" } )
+      @Html.ValidationMessage("InstituteName")
+   </div>
+   <br>
+
+   <div class="form-group col-md-2">
+      InstituteAddress :
+      @Html.TextBoxFor(m => m.InstituteContactNo, new { @class = "form-control" })
+      @Html.ValidationMessage("InstituteContactNo")
+   </div>
+   <br>
+
+
+   <div class="form-group col-md-2">
+      join Date :
+      @Html.TextBoxFor(m => m.InstJoinDate, new { @class = "form-control",  @type = "date" })
+      @Html.ValidationMessage("InstJoinDate")
+   </div>
+   <br>
+
+   <div class="form-group col-md-2">
+      Leave Date :
+      @Html.TextBoxFor(m => m.InstLeaveDate, new { @class = "form-control" ,  @type = "date"} )
+      @Html.ValidationMessage("InstLeaveDate")
+   </div>
+
+   <br>
+
+   <div class="row">
+      <input type="submit" asp-action="AddNewStudent" class="btn btn-primary col-md-1" value="Add" /> &nbsp; &nbsp; &nbsp;
+      <input type="submit" asp-action="UpdateStudent" class="btn btn-primary col-md-1" value="Update" />&nbsp; &nbsp;
+      &nbsp;
+      <input type="submit" asp-action="DeleteStudent" class="btn btn-primary col-md-1" value="Delete" />&nbsp; &nbsp;
+      &nbsp;
+   </div>
+}

@@ -1,0 +1,63 @@
+@model HMSApp.Models.RoomInfo;
+
+@{
+   ViewData["Title"] = "Room Page";
+}
+
+@using (Html.BeginForm("RoomInfo", "Home", FormMethod.Post))
+{
+
+   <div class="form-group col-md-2">
+      Enter Room No :
+      @Html.TextBoxFor(m => m.EnterRoomNo, new { @class = "form-control"})
+      @Html.ValidationMessage("EnterRoomNO")
+   </div><br>
+
+   <div class="form-group col-md-2">
+      AC :
+      @Html.RadioButtonFor(m => m.Ac, "AC", new { @class = "form-check-input" ,@type="radio"})
+      @Html.ValidationMessage("Ac")
+   </div><br>
+
+
+   <div class="form-group col-md-2">
+      Non Ac :
+      @Html.RadioButtonFor(m => m.NonAc,"Non Ac", new { @class = "form-check-input" ,@type="radio"})
+      @Html.ValidationMessage("NonAc")
+   </div><br>
+
+
+   <div class="form-group col-md-2">
+      Three Seat :
+      @Html.RadioButtonFor(m => m.ThreeSeated ,"Three Seat", new { @class = "form-check-input" ,@type="radio"})
+      @Html.ValidationMessage("ThreeSeated")
+   </div><br>
+
+   <div class="form-group col-md-2">
+      Two Seat :
+      @Html.RadioButtonFor(m => m.TwoSeated,"Two Seat", new { @class = "form-check-input" ,@type="radio"})
+      @Html.ValidationMessage("TwoSeated")
+   </div><br>
+
+   <div class="form-group col-md-2">
+      Wifi :
+      @Html.RadioButtonFor(m => m. Wifi, "Wifi", new { @class = "form-check-input" ,@type="radio"})
+      @Html.ValidationMessage(" Wifi")
+   </div><br>
+
+
+   <div class="form-group col-md-2">
+      Charges :
+      @Html.TextBoxFor(m => m.Charges)
+      @Html.ValidationMessage("Charges")
+   </div> <br>
+
+     <div class="row">
+       <input type="submit" asp-action="AddNewStudent" class="btn btn-primary col-md-1" value="Add" /> &nbsp; &nbsp; &nbsp;
+       <input type="submit" asp-action="UpdateStudent" class="btn btn-primary col-md-1" value="Update" />&nbsp; &nbsp; &nbsp;  
+       <input type="submit" asp-action="DeleteStudent" class="btn btn-primary col-md-1" value="Delete" />&nbsp; &nbsp; &nbsp; 
+    </div>
+
+
+
+}

@@ -1,0 +1,45 @@
+@model HMSApp.Models.StudAttModel;
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@using (Html.BeginForm("StudentAtt", "Student", FormMethod.Post))
+   {
+
+    <div class="form-group col-md-2">     
+       Student Id :   
+         @Html.TextBoxFor(m => m.StudentId, new { @class = "form-control" })
+         @Html.ValidationMessage("StudentId")
+   </div>
+   <br>
+
+
+        <div class="form-group col-md-2">
+           Current Date :
+         @Html.TextBoxFor(m => m. CurrentDate, new { @class = "form-control"   ,@type = "date"})
+         @Html.ValidationMessage("CurrentDate")
+      </div>
+<br>
+
+        <div class="form-group col-md-2">
+         Morning :
+         @Html.CheckBoxFor(m => m.Morning, new { @class = "form-check-input" })
+         @Html.ValidationMessage("Morning")
+    </div>
+<br>
+
+              <div class="form-group col-md-2">
+                 Evening :
+         @Html.CheckBoxFor(m => m.Evening, new { @class = "form-check-input" })
+         @Html.ValidationMessage("Evening")
+</div>
+<br>
+
+<div class="row">
+       <input type="submit" asp-action="AddNewStudent" class="btn btn-primary col-md-1" value="Add" /> &nbsp; &nbsp; &nbsp;
+       <input type="submit" asp-action="UpdateStudent" class="btn btn-primary col-md-1" value="Update" />&nbsp; &nbsp; &nbsp;
+       <input type="submit" asp-action="DeleteStudent" class="btn btn-primary col-md-1" value="Delete" />&nbsp; &nbsp; &nbsp;
+    </div>
+
+   }

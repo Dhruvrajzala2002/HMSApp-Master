@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - HMSApp</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row position-relative">
+            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                    <a href="/"
+                        class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                        <img src="~/Images/logo.png" width="160" height="100" alt="HMSApp">
+                    </a>
+                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
+                        id="menu">
+                        <li class="nav-item">
+                            <a class="nav-link align-middle px-0" asp-area="" asp-controller="Home"
+                                asp-action="Student">
+                                <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Student</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link align-middle px-0" asp-area="" asp-controller="Home"
+                                asp-action="MessInfo">
+                                <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Mess Info</span>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a class="nav-link align-middle px-0" asp-area="" asp-controller="Home"
+                                asp-action="RoomInfo">
+                                <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Room Info.</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link align-middle px-0" asp-area="" asp-controller="Home"
+                                asp-action="Charges">
+                                <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Charges</span>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a class="nav-link align-middle px-0" asp-area="" asp-controller="Home"
+                                asp-action="Visitor">
+                                <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Visitor</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="container" style="max-width:80%;">
+                <nav class="navbar navbar-light bg-light">
+                    <span class="navbar-brand mb-0 h1">Hostel Management System</span>
+                    <div class="dropdown show">
+                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="~/Images/user.png" alt="User" width="30" height="30"
+                                class="rounded-circle">
+                            <span class="d-none d-sm-inline mx-1">Dhruvraj</span>
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item" href="#">Profile</a>
+                            <a class="dropdown-item" href="#">Setting</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Sign Out</a>
+                        </div>
+                    </div>
+                </nav>
+                <br />
+                <main role="main">
+                    @RenderBody()
+                </main>
+            </div>
+        </div>
+    </div>zA    QZ
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>
